@@ -13,11 +13,17 @@ Route::prefix('auth/')->group(function () {
 
 
 // admin only can access to this routes
-Route::prefix('admin/user/')->middleware(['auth:sanctum', 'IsAdmin'])->group(function () {
-    Route::delete('/{id}', [UserController::class, 'delete']);
-    Route::put('/{id}', [UserController::class, 'update']);
+Route::prefix('admin/user')->middleware(['auth:sanctum', 'IsAdmin'])->group(function () {
     Route::get('all', [UserController::class, 'index']);
-    Route::get('/{id}', [UserController::class, 'show']);
+    Route::delete('{id}', [UserController::class, 'delete']);
+    Route::put('{id}', [UserController::class, 'update']);
+    Route::get('{id}', [UserController::class, 'show']);
+});
+
+
+// for user
+Route::prefix('user')->group(function () {
+    // Add any normal user routes here if needed in the future
 });
 
 
