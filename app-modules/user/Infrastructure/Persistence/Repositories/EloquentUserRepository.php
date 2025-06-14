@@ -24,10 +24,11 @@ class EloquentUserRepository implements UserRepositoryInterface
     private function mapToDomain(UserModel $userModel): User
     {
         return new User(
-            $userModel->id,
-            $userModel->name,
-            $userModel->email,
-            $userModel->password
+            id: $userModel->id,
+            name: $userModel->name,
+            email: $userModel->email, // ✅ صحيح
+            role: $userModel->role,
+            password: $userModel->password,
         );
     }
 
@@ -77,12 +78,17 @@ class EloquentUserRepository implements UserRepositoryInterface
 
     public function register(RegisterUserDTO $registerUserDTO): User
     {
-        $user = new User(0, $registerUserDTO->getName(), $registerUserDTO->getEmail(), $registerUserDTO->getHashedPassword());
+        $user = new User(id: 0,
+            role: $registerUserDTO->getRole(),
+            name: $registerUserDTO->getName(),
+            email: $registerUserDTO->getEmail(),
+            password: $registerUserDTO->getHashedPassword());
 
         $userModel = new UserModel();
 
-        $userModel->name = $user->name;
-        $userModel->email = $user->email;
+        $userModel->role = $user->getRole();
+        $userModel->name = $user->getName();
+        $userModel->email = $user->getEmail();
         $userModel->password = $user->getPassword();
         $userModel->save();
 
@@ -100,13 +106,7 @@ class EloquentUserRepository implements UserRepositoryInterface
             throw new AuthenticationException("Invalid credentials");
 
         }
-//        return new User(
-//            id: $user->id,
-//            name: $user->name,
-//            email: $user->email,
-//            password: $user->password
-//        );
-//        return $user;
+
         return $this->mapToDomain($userModel); // ✅ الحل هنا
 
     }

@@ -22,7 +22,7 @@ class UserService
 
     }
 
-    public function login(LoginUserDTO $loginUserDTO): User
+    public function login(LoginUserDTO $loginUserDTO): ?User
     {
         return $this->userRepository->login($loginUserDTO);
 

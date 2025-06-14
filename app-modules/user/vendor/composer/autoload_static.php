@@ -31,7 +31,7 @@ class ComposerStaticInitbb13702bb0ebad9ddee9b2a75d9243a0
         ),
         'AppModules\\User\\' => 
         array (
-            0 => '/',
+            0 => __DIR__ . '/../..' . '/',
         ),
     );
 

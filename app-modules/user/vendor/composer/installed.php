@@ -1,7 +1,7 @@
 <?php return array(
     'root' => array(
         'name' => 'modules/user',
-        'pretty_version' => '1.0',
+        'pretty_version' => '1.0.0',
         'version' => '1.0.0.0',
         'reference' => null,
         'type' => 'library',
@@ -11,7 +11,7 @@
     ),
     'versions' => array(
         'modules/user' => array(
-            'pretty_version' => '1.0',
+            'pretty_version' => '1.0.0',
             'version' => '1.0.0.0',
             'reference' => null,
             'type' => 'library',

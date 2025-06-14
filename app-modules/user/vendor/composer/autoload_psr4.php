@@ -9,5 +9,5 @@ return array(
     'AppModules\\User\\Tests\\' => array($baseDir . '/tests'),
     'AppModules\\User\\Database\\Seeders\\' => array($baseDir . '/database/seeders'),
     'AppModules\\User\\Database\\Factories\\' => array($baseDir . '/database/factories'),
-    'AppModules\\User\\' => array('/'),
+    'AppModules\\User\\' => array($baseDir . '/'),
 );

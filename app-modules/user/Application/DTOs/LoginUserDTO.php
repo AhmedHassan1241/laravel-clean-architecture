@@ -6,11 +6,11 @@ namespace AppModules\User\Application\DTOs;
 //This file Data Transfer To Object (DTO)
 class LoginUserDTO
 {
-    private string $hashedPassword;
+//    private string $hashedPassword;
 
     public function __construct(private string $email, private string $password)
     {
-        $this->hashedPassword = password_hash($this->password, PASSWORD_DEFAULT);
+//        $this->hashedPassword = password_hash($this->password, PASSWORD_DEFAULT);
     }
 
     public function getEmail(): string

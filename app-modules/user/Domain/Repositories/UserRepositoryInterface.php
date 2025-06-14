@@ -9,7 +9,6 @@ use AppModules\User\Domain\Entities\User;
 
 interface UserRepositoryInterface
 {
-    public function getAll(): array;  // ترجع مصفوفة من المستخدمين
 
     public function login(LoginUserDTO $user): ?User;  // ترجع مستخدم أو null لو مش موجود
 
@@ -17,7 +16,11 @@ interface UserRepositoryInterface
 
     public function update(int $id, UpdateUserDTO $updateUserDTO): ?User;
 
+    public function findById(int $id): ?User;
+
 //    public function update(int $id,UpdateUserDTO $updateUserRequest): ?User; // تعديل مستخدم بالمعرف
     public function delete(int $id): bool; // حذف مستخدم بالمعرف
+
+    public function getAll(): array;  // ترجع مصفوفة من المستخدمين
 
 }

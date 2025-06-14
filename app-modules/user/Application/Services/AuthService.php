@@ -9,7 +9,10 @@ class AuthService
 {
     public function generateToken(User $user): string
     {
-        $userModel = UserModel::where('email', $user->getEmail())->firstOrFail();
+
+//
+
+        $userModel = UserModel::where('email', $user->getEmail())->first();
 
         return $userModel->createToken('api_token')->plainTextToken;
     }

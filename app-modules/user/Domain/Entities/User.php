@@ -6,9 +6,17 @@ namespace AppModules\User\Domain\Entities;
 class User
 {
 
-    public function __construct(public int $id, public string $name, public string $email, private string $password)
+    public function __construct(public int $id, public string $role, public string $name, public string $email, private string $password)
     {
 
+    }
+
+    /**
+     * @return string
+     */
+    public function getRole(): string
+    {
+        return $this->role;
     }
 
     public function getId(): int
